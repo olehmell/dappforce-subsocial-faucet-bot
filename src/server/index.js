@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 const port = 5555;
 
 const mnemonic = process.env.MNEMONIC;
+const privilegedSenders = (process.env.PRIVILEGED_SENDERS).split(",");
 
 app.get('/health', (_, res) => {
   res.send('Faucet backend is healthy.');
@@ -29,13 +30,13 @@ const createAndApplyActions = async () => {
   app.post('/bot-endpoint', async (req, res) => {
     const { address, amount, sender } = req.body;
 
-    if (!(await storage.isValid(sender, address)) && !sender.endsWith(':web3.foundation')) {
+    if (!(await storage.isValid(sender, address)) && !privilegedSenders.includes(sender)) {
       res.send('LIMIT');
     }
 
     await storage.saveData(sender, address);
     
-    const hash = await actions.sendDOTs(address, amount);
+    const hash = await actions.sendTokens(address, amount);
     res.send(hash);
   });
   
