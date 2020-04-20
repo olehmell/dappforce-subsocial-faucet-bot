@@ -91,8 +91,8 @@ bot.on('Room.timeline', async (event) => {
 
     bot.sendHtmlMessage(
       roomId,
-      `Sent ${sender} ${amount} ${tokenName}s. Extrinsic hash: \`${res.data}.\``
-      // `Sent ${sender} ${amount} ${tokenName}s. <a href="http://167.172.104.62/bc/#/explorer/query/${res.data}">View on a Blockchain Explorer.</a>`
+      `Sent ${sender} ${amount} m${tokenName}s. Extrinsic hash: \`${res.data}.\``
+      // `Sent ${sender} ${amount} m${tokenName}s. <a href="https://polkascan.io/pre/subsocial/transaction/${res.data}">View on Polkascan.</a>`
     );
   }
 
