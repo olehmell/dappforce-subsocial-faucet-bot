@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@subsocial/types": "^0.1.20-beta17",
-    "@subsocial/utils": "^0.1.20",
+    "@subsocial/types": "^0.1.24",
+    "@subsocial/utils": "^0.1.21",
     "cids": "x.x.x",
     "@polkadot/api": "^1.9.1",
     "@polkadot/keyring": "^2.7.1",
